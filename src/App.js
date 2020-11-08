@@ -5,7 +5,7 @@ import Usurvey from './FireBase/Usurvey';
 function App() {
   return (
     <div className="App">
-     <p>Welcome Darling </p>
+     <p>Welcome  </p>
      <Usurvey/>
     </div>
   );

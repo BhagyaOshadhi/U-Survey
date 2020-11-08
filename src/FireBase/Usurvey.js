@@ -4,6 +4,7 @@ var uuid = require('uuid')
 //import firebase from 'firebase'
 
 
+
 var firebaseConfig = {
     apiKey: "AIzaSyB7FG5C0zxknXq2qtqx7_6JmgGRmyitidw",
     authDomain: "u-survey-53841.firebaseapp.com",
@@ -15,8 +16,9 @@ var firebaseConfig = {
     measurementId: "G-QRW31DLER4"
   };
   // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+// firebase.initializeApp(firebaseConfig);
+// firebase.analytics();
+//const firebaseApp=firebase.initializeApp(firebaseConfig)
 
 class Usurvey extends Component{
 
@@ -24,13 +26,13 @@ class Usurvey extends Component{
         super(props);
         this.state = {
             uid : uuid.v1,
-            studentName:" Bhagya",
+            studentName:"",
             answers:{
                 answer1:"",
                 answer2:"",
                 answer3:""
             },
-            isSubmitted:true
+            isSubmitted:false
         };
         this.nameSubmit = this.nameSubmit.bind(this);
         this.questionSubmit = this.questionSubmit.bind(this);
@@ -39,19 +41,34 @@ class Usurvey extends Component{
       
     }
     nameSubmit(event){
-        var studentName = this.refs.name.value;
+        console.log("inside namesubmit");
+        var studentName = this.refs.name;
+        //var studentName = "Bhagya"
+        console.log(studentName)
         this.setState({studentName:studentName},function(){
             console.log(this.state);
+            console.log("inside namesubmit");
         });
     }
     answerSelected(event){
-        // var answers=this.state.answers;
-        // if(event.target.name === "answer1" ){
-        //     answers.answer1 = event.
-        // }
+        var answers=this.state.answers;
+        console.log("inside answerSelected");
+        if(event.target.name === "answer1" ){
+             answers.answer1 = event.target.value;
+        }
+        this.setState({answers:answers},function(){
+            console.log(this.state)
+        })
     }
     questionSubmit(){
-
+        console.log("inside question Submit");
+        firebase.database().ref('U-Survey/'+this.state.uid).set({
+            studentName: this.state.studentName,
+            answers:this.state.answers
+        });
+        this.setState({isSubmitted:true},function(){
+            console.log(this.state)
+        })
     }
 
   
@@ -60,27 +77,30 @@ class Usurvey extends Component{
         var questions;
 
         if(this.state.studentName === '' && this.state.isSubmitted === false){
+            console.log("first condition")
             studentName = <div>
-                <h4> Please let us your name:</h4>
+                <h4> Please let us know your name:</h4>
                 <form onSubmit = {this.nameSubmit}>
-                    <input type="text" placeholder="Enter your name" refs="name"/>
+                    <input type="text" placeholder="Enter your name" refs="name" />
                 </form>
             </div>
         } else if(this.state.studentName !== "" && this.state. isSubmitted === false){
-        studentName=<h1>welcome to Usurvey,{this.state.studentName}</h1>
+            console.log("second condition")
+            studentName=<h1>welcome to Usurvey,{this.state.studentName}</h1>
         questions=<div>
             <h2>Here are some Questions</h2>
             <form onSubmit={this.questionSubmit}>
                <div>
-                   <label>What kind of Cause You like the most?</label><br/>
+                   <h4>What kind of Cause You like the most?</h4><br/>
                    <input type = "radio" name="answer1" value="Technology" onChange={this.answerSelected}/>Technology
                    <input type = "radio" name="answer1" value="Science" onChange={this.answerSelected}/>Science
                    <input type = "radio" name="answer1" value="Mathamatics" onChange={this.answerSelected}/>Mathematics
                </div>
-               <input type = "submit" value = "submit" />
+               <input type = "button" value = "submit" />
             </form>
         </div>
         }else if(this.state.isSubmitted === true){
+            console.log("third condition")
         studentName=<h2>Thanks, {this.state.studentName}</h2>
         }
         return(
