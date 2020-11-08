@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
-var firebase = require('firebase/app')
+import firebase from 'firebase'
 var uuid = require('uuid')
-//import firebase from 'firebase'
+
 
 
 
@@ -17,8 +17,9 @@ var firebaseConfig = {
   };
   // Initialize Firebase
 // firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
-//const firebaseApp=firebase.initializeApp(firebaseConfig)
+ const firebaseApp = firebase.initializeApp(firebaseConfig)
+ firebase.analytics();
+
 
 class Usurvey extends Component{
 
@@ -34,6 +35,7 @@ class Usurvey extends Component{
             },
             isSubmitted:false
         };
+        this.nameRef = React.createRef();
         this.nameSubmit = this.nameSubmit.bind(this);
         this.questionSubmit = this.questionSubmit.bind(this);
         this.answerSelected = this.answerSelected.bind(this);
@@ -42,7 +44,7 @@ class Usurvey extends Component{
     }
     nameSubmit(event){
         console.log("inside namesubmit");
-        var studentName = this.refs.name;
+        var studentName = this.nameRef.value;
         //var studentName = "Bhagya"
         console.log(studentName)
         this.setState({studentName:studentName},function(){
@@ -81,10 +83,10 @@ class Usurvey extends Component{
             studentName = <div>
                 <h4> Please let us know your name:</h4>
                 <form onSubmit = {this.nameSubmit}>
-                    <input type="text" placeholder="Enter your name" refs="name" />
+                    <input type="text" placeholder="Enter your name" ref={ (ref) => this.nameRef=ref }/>
                 </form>
             </div>
-        } else if(this.state.studentName !== "" && this.state. isSubmitted === false){
+        } else if(this.state.studentName !== "" && this.state.isSubmitted === false){
             console.log("second condition")
             studentName=<h1>welcome to Usurvey,{this.state.studentName}</h1>
         questions=<div>
