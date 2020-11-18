@@ -1,12 +1,12 @@
 import './App.css';
-import Usurvey from './FireBase/Usurvey';
+import Props from './Props/Props'
 
 
 function App() {
   return (
     <div className="App">
      <p>Welcome  </p>
-     <Usurvey/>
+    <Props/>
     </div>
   );
 }
