@@ -1,11 +1,11 @@
 import React,{Component} from 'react'
-class One extends Component{
+class NoMatch extends Component{
     render(){
         return(
             <div>
-                I am One
+                this page does not exist
             </div>
         )
     }
 }
-export default One;
+export default NoMatch;

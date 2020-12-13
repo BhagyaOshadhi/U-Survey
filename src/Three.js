@@ -1,11 +1,11 @@
 import React,{Component} from 'react'
-class One extends Component{
+class Three extends Component{
     render(){
         return(
             <div>
-                I am One
+                I am Three
             </div>
         )
     }
 }
-export default One;
+export default Three ;
