@@ -1,12 +1,13 @@
 import './App.css';
-import Usurvey from './FireBase/Usurvey';
+import ApiCall from "./APICALL/ApiCall";
+import React from "react";
 
 
 function App() {
   return (
     <div className="App">
      <p>Welcome  </p>
-     <Usurvey/>
+     <ApiCall/>
     </div>
   );
 }

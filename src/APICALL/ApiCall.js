@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import axios from 'axios';
 class ApiCall extends Component{
 
     constructor(props){
@@ -16,12 +17,23 @@ class ApiCall extends Component{
 
     getReddit = () =>{
         axios.get(`https://www.reddit.com/r/${this.state.subr}.json`)
+            .then(res=>{
+                const posts = res.data.data.children.map(obj =>obj.data)
+                this.setState({posts});
+                console.log(posts);
+            })
     }
 
     render(){
         return(
             <div>
                 I'm from Api call
+                <h>{`/r/${this.state.subr}`}</h>
+                <ul>
+                    {this.state.posts.map(post =>
+                        <li key={post.id}>{post.title}</li>
+                    )}
+                </ul>
             </div>
         )
     }
