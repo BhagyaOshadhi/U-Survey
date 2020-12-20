@@ -9,10 +9,10 @@ import Three from "./Three";
 import Four from "./Four";
 import FourPointOne from "./FourPointOne";
 import NoMatch from "./NoMatch";
-import {BrowserRouter as Router,Route,Link} from 'react-router-dom'
-import {browserHistory} from 'react-router'
+import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom'
+// import {browserHistory} from 'react-router'
 ReactDOM.render(
-    <Router history={browserHistory}>
+    <Router >
         <div>
             <ul>
                 <li><Link to="/">App</Link></li>
@@ -21,16 +21,19 @@ ReactDOM.render(
                 <li><Link to="/three">Three</Link></li>
                 <li><Link to="/four">Four</Link></li>
 
+
             </ul>
             <hr/>
+            <Switch>
             <Route exact path="/" component={App}/>
             <Route exact path="/One" component={One}/>
             <Route exact path="/two" component={Two}/>
             <Route exact path="/three" component={Three}/>
-            <Route exact path="/four" component={Four}>
-                <Route exact path="/four/:id" component={FourPointOne}/>
+            <Route exact path="/four" >
+                {Four}
             </Route>
-            < Route path="*" component={NoMatch}/>
+            <Route  component={NoMatch}/>
+            </Switch>
         </div>
     </Router>
 
