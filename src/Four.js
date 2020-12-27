@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
-import {Link} from 'react-router'
-import {Route, Switch} from "react-router-dom";
+// import {Link} from 'react-router'
+import {Route, Switch,Link} from "react-router-dom";
 import App from "./App";
 import One from "./One";
 import Two from "./Two";

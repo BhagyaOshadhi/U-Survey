@@ -8,6 +8,9 @@ function App() {
   return (
     <div className="App">
         <p>hi</p>
+        <div>
+          <li><Link to ="/One">one</Link></li>
+        </div>
     </div>
   );
 }

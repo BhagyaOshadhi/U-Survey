@@ -13,10 +13,10 @@ import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom'
 // import {browserHistory} from 'react-router'
 ReactDOM.render(
     <Router >
-        <div>
+      
             <ul>
                 <li><Link to="/">App</Link></li>
-                <li><Link to="/one">One</Link></li>
+                {/* <li><Link to="/one">One</Link></li> */}
                 <li><Link to="/two">Two</Link></li>
                 <li><Link to="/three">Three</Link></li>
                 <li><Link to="/four">Four</Link></li>
@@ -34,7 +34,7 @@ ReactDOM.render(
             </Route>
             <Route  component={NoMatch}/>
             </Switch>
-        </div>
+
     </Router>
 
 
