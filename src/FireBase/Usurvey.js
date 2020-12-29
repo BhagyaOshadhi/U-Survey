@@ -62,6 +62,8 @@ class Usurvey extends Component{
         console.log("inside answerSelected");
         if(event.target.name === "answer1" ){
              answers.answer1 = event.target.value;
+        }else if(event.target.name === "answer2"){
+            answers.answer2 = event.target.value;
         }
         this.setState({answers:answers},function(){
             console.log(this.state)
@@ -105,6 +107,12 @@ class Usurvey extends Component{
                         <input type = "radio" name="answer1" value="Technology" onChange={this.answerSelected}/>Technology
                         <input type = "radio" name="answer1" value="Science" onChange={this.answerSelected}/>Science
                         <input type = "radio" name="answer1" value="Mathamatics" onChange={this.answerSelected}/>Mathematics
+
+                        <h4>You are a ?</h4><br/>
+                        <input type = "radio" name="answer2" value="Student" onChange={this.answerSelected}/>Student
+                        <input type = "radio" name="answer2" value="in-job" onChange={this.answerSelected}/>in-job
+                        <input type = "radio" name="answer2" value="Looking job" onChange={this.answerSelected}/>Looking job
+                        <br/>
                         <input type = "submit" value = "submit" />
                     </div>
                    
