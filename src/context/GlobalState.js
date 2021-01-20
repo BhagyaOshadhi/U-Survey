@@ -23,14 +23,22 @@ const removeUser = (id) =>{
 }
 const addUser = (user) =>{
     dispatch({
-         type: 'ADD_USER',
-         payload:user})
+        type:'ADD_USER',
+        payload:user
+    })
+}
+const editUser = (user) =>{
+    dispatch({
+        type:"EDIT_USER",
+        payload:user
+    })
 }
     return(
         <GlobalContext.Provider value={{
             users: state.users,
             removeUser,
-            addUser
+            addUser,
+            editUser
          }}>
              {children}
         </GlobalContext.Provider>

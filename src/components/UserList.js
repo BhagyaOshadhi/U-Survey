@@ -4,10 +4,11 @@ import {GlobalContext} from '../context/GlobalState';
 import {ListGroup,ListGroupItem,Button} from 'reactstrap';
 
 const UserList = () => {
-    const {users,removeUser} = useContext(GlobalContext);
+    const {users,removeUser,adUser} = useContext(GlobalContext);
     console.log(users)
     return(
         <ListGroup className="mt-4">
+        {/* <Button color="danger" onClick={()=> adUser({id:7,name:"user seven"})} >ad</Button> */}
             {users.map(user =>(
                 <ListGroupItem className="d-flex">
                     <strong>{user.name}</strong>
