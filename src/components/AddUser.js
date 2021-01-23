@@ -25,7 +25,7 @@ export const AddUser = () =>{
       <Form onSubmit={onSubmit}>
           <FormGroup>
               <Label>Name</Label>
-              <Input value={name} name='name' type="text" placeholder="Enter Name"onChange={onChange}></Input>
+              <Input value={name} name='name'  type="text" placeholder="Enter Name"onChange={onChange}></Input>
           </FormGroup>
           <Button type="submit">Submit</Button>
           <Link to="/" className="btn btn-danger ml-2">Cancel</Link>

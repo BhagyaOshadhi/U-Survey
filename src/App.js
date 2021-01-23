@@ -13,7 +13,7 @@ function App() {
       <Router>
         <Switch>
             <AddUser path="/add" component={AddUser}/>
-            <EditUser path="/edit/:id" component={EditUser}/>
+            <EditUser path="/edit/:id" component={EditUser} render={(props) => <EditUser {...props} />}/>
             <Home path="/" component={Home}/>
         </Switch>
       </Router>
