@@ -2,7 +2,6 @@ import React,{useState,useContext,useEffect} from 'react';
 import {Form,FormGroup,Label,Input,Button} from 'reactstrap';
 import {Link,useHistory} from 'react-router-dom';
 import {GlobalContext} from '../context/GlobalState';
-import {v4 as uuid} from 'uuid';
 
 export const EditUser = (props) =>{
     const [selectedUser,setSelectedUser] = useState({id:"",name:""})
@@ -12,7 +11,7 @@ export const EditUser = (props) =>{
 
     useEffect(() => {
         const userId = currentUserId;
-        const selectedUser = users.find(user => user.id === Number(userId))
+        const selectedUser = users.find(user => user.id === userId)
         setSelectedUser(selectedUser)
     },[currentUserId,users])
     const onSubmit = () =>{
@@ -20,7 +19,7 @@ export const EditUser = (props) =>{
    
     }
     const onChange = (e) =>{
-       
+        setSelectedUser({...selectedUser,[e.target.name]:e.target.value})
     }
     return(
         <Form onSubmit={onSubmit}>
