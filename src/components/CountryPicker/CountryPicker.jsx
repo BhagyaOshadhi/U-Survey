@@ -5,23 +5,24 @@ import {fetchCountries} from '../../API/index';
 // import {countries} from '../../API/index';
 
 const CountryPicker = ({handleCountryChange}) =>{
+    // console.log(confirmed)
     let listt = ['asd','asd','asd'];
-    const [fetchedCountries,setFetchedCountries] = useState([]);
+    const [countries,setCountries] = useState();
     useEffect(() =>{
         const fetchAPI = async () =>{
-            setFetchedCountries(await fetchCountries)
+            setCountries(await fetchCountries)
         }
         fetchAPI();
-    },[setFetchedCountries]);
-    console.log("fetchedCountries",fetchedCountries)
+    },[setCountries]);
+    // console.log("countries",countries.length)
     // console.log("fetchedCountries[0]",fetchedCountries.length)
     return(
     
        <FormControl className="formControl">
            <NativeSelect defaultValue="" onChange={(e) =>handleCountryChange(e.target.value)}>
-               <option value ="global">Global</option>
-               {listt.map((list,i) =><option value={list} key={i}>{list}</option>)}
-               {/* {fetchedCountries.map((country,i) => <option key={i} value={country}>{country}</option>)} */}
+               <option value ="">Global</option>
+               {/* {countries.map((country,i) => <option key={i} value={country}>{country}</option>)} */}
+               {listt.map((list,i) => <option key={i} value={list}>{list}</option>)}
            </NativeSelect>
        </FormControl>
     )
