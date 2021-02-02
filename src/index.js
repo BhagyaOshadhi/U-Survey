@@ -9,31 +9,19 @@ import Three from "./Three";
 import Four from "./Four";
 import FourPointOne from "./FourPointOne";
 import NoMatch from "./NoMatch";
-import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom'
+import {BrowserRouter as Router,Route,Switch,Link} from 'react-router-dom'
 // import {browserHistory} from 'react-router'
 ReactDOM.render(
     <Router >
-      
-            <ul>
-                <li><Link to="/">App</Link></li>
-                {/* <li><Link to="/one">One</Link></li> */}
-                <li><Link to="/two">Two</Link></li>
-                <li><Link to="/three">Three</Link></li>
-                <li><Link to="/four">Four</Link></li>
-
-
-            </ul>
-            <hr/>
-            <Switch>
-            <Route exact path="/" component={App}/>
-            <Route exact path="/One" component={One}/>
-            <Route exact path="/two" component={Two}/>
-            <Route exact path="/three" component={Three}/>
-            <Route exact path="/four" >
-                {Four}
-            </Route>
-            <Route  component={NoMatch}/>
-            </Switch>
+        <Switch>
+            <Route  exact path="/" component={App}/>
+            <Route path="/One"component={One}/>
+            <Route path="/Two" component={Two}/>
+            <Route path="/Three" component={Three}/>
+            <Route path="/Four" component={Four}/>
+            <Route path="/Four/:id" component={FourPointOne} ></Route>
+            <Route path="*" component={NoMatch}></Route>
+        </Switch>
 
     </Router>
 

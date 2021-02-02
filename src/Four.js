@@ -1,13 +1,6 @@
 import React,{Component} from 'react'
-// import {Link} from 'react-router'
-import {Route, Switch,Link} from "react-router-dom";
-import App from "./App";
-import One from "./One";
-import Two from "./Two";
-import Three from "./Three";
-import FourPointOne from "./FourPointOne";
+import {Link} from 'react-router'
 
-import NoMatch from "./NoMatch";
 class Four extends Component{
     
     render(){
@@ -15,14 +8,10 @@ class Four extends Component{
             <div>
                 I am four
                 <ul>
-                    <li><Link to="/four/123">Four Point One</Link></li>
+                    <li><Link to="/Four/123">Four Point One</Link></li>
                 </ul>
-
-                <Switch>
-                        <Route exact path="/four/:id" component={FourPointOne}/>
-
-                    <Route  component={NoMatch}/>
-                </Switch>
+                {this.props.children}
+                
             </div>
         )
     }
