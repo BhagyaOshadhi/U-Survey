@@ -1,12 +1,12 @@
 import './App.css';
-import Usurvey from './FireBase/Usurvey';
+import Timer from './Timer';
 
 
 function App() {
   return (
     <div className="App">
      <p>Welcome  </p>
-     <Usurvey/>
+     <Timer start={Date.now()}/>
     </div>
   );
 }
