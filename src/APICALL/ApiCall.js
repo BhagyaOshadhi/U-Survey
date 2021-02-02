@@ -20,7 +20,7 @@ class ApiCall extends Component{
             .then(res=>{
                 const posts = res.data.data.children.map(obj =>obj.data)
                 this.setState({posts});
-                console.log(posts);
+                console.log(posts[0].title);
             })
     }
 
