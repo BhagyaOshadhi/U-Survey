@@ -20,14 +20,9 @@ public class Problem8 {
                 "84580156166097919133875499200524063689912560717606\n" +
                 "05886116467109405077541002256983155200055935729725\n" +
                 "71636269561882670428252483600823257530420752963450";
-//        int inum = Integer.parseInt(s);
-//        System.out.println(inum);
-        System.out.println(s.charAt(48));
-        System.out.println(s.charAt(49));
-        System.out.println(s.charAt(50));
-        System.out.println(s.charAt(51));
-        System.out.println(s.charAt(52));
-        System.out.println(s.charAt(53));
+        int inum = Integer.parseInt(s);
+        System.out.println(inum);
+
     }
 
 }
