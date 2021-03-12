@@ -1,14 +1,13 @@
+
 import './App.css';
-import Usurvey from './FireBase/Usurvey';
 
-
-function App() {
-  return (
-    <div className="App">
-     <p>Welcome  </p>
-     <Usurvey/>
+function App(props) {
+  return(
+    <div>
+      welcome
+      <button>hi</button>
     </div>
   );
-}
+};
 
 export default App;
