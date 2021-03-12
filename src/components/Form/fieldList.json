@@ -1,0 +1,83 @@
+[
+  {
+    "name": "firstName",
+    "label": "First Name",
+    "type": "text",
+    "value": "test",
+    "isDisabled": false,
+    "validation": {
+      "required": true,
+      "pattern": "ONLY_ALPHABETS"
+    },
+    "errorMessage": "Enter alphabets only"
+  },
+  {
+    "name": "lastName",
+    "label": "Last Name",
+    "type": "text",
+    "value": "",
+    "isDisabled": false,
+    "validation": {
+      "required": true,
+      "pattern": "ONLY_ALPHABETS"
+    },
+    "errorMessage": "Enter alphabets only"
+  },
+  {
+    "name": "email",
+    "label": "Email",
+    "type": "email",
+    "value": "",
+    "isDisabled": false,
+    "validation": {
+      "required": true
+    },
+    "errorMessage": "Please enter email address"
+  },
+  {
+    "name": "password",
+    "label": "Password",
+    "type": "text",
+    "value": "",
+    "isDisabled": false,
+    "validation": {
+      "required": true,
+      "pattern": "PASSWORD"
+    },
+    "errorMessage": "Minimum eight characters, at least one letter and one number"
+  },
+  {
+    "name": "address",
+    "label": "Address",
+    "type": "text",
+    "value": "",
+    "isDisabled": false,
+    "validation": {
+      "required": false
+    }
+  },
+  {
+    "name": "accountNo",
+    "label": "Account No",
+    "type": "text",
+    "value": "",
+    "isDisabled": false,
+    "validation": {
+      "required": false,
+      "pattern": "ONLY_NUMBERS"
+    },
+    "errorMessage": "Enter numbers only"
+  },
+  {
+    "name": "password",
+    "label": "Password",
+    "type": "password",
+    "value": "",
+    "isDisabled": false,
+    "validation": {
+      "required": false,
+      "pattern": "ONLY_NUMBERS"
+    },
+    "errorMessage": "Enter numbers only"
+  }
+]
