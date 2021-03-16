@@ -12,12 +12,12 @@ function App(props) {
       <Fragment>
       <div className="App"  style={{marginLeft:"40%"}} >
         <h2>Date Time Picker</h2>
-          {/*<DateTimePicker*/}
-          {/*    variant="inline"*/}
-          {/*    label="Basic example"*/}
-          {/*    value={selectedDate}*/}
-          {/*    onChange={handleDateChange}*/}
-          {/*/>*/}
+          <DateTimePicker
+              variant="inline"
+              label="Basic example"
+              value={selectedDate}
+              onChange={handleDateChange}
+          />
          <DatePickerR
             inputProps={{
               style: { width: 250 }
