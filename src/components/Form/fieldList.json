@@ -3,7 +3,7 @@
     "name": "firstName",
     "label": "First Name",
     "type": "text",
-    "value": "test",
+    "value": "",
     "isDisabled": false,
     "validation": {
       "required": true,
@@ -37,7 +37,7 @@
   {
     "name": "password",
     "label": "Password",
-    "type": "text",
+    "type": "password",
     "value": "",
     "isDisabled": false,
     "validation": {
@@ -69,15 +69,24 @@
     "errorMessage": "Enter numbers only"
   },
   {
-    "name": "password",
-    "label": "Password",
-    "type": "password",
+    "name": "check1",
+    "label": "Check1",
+    "type": "checkbox",
     "value": "",
-    "isDisabled": false,
-    "validation": {
-      "required": false,
-      "pattern": "ONLY_NUMBERS"
-    },
-    "errorMessage": "Enter numbers only"
+    "isDisabled": false
+  },
+  {
+    "name": "check2",
+    "label": "Check2",
+    "type": "checkbox",
+    "value": "",
+    "isDisabled": false
+  },
+  {
+    "name": "check3",
+    "label": "Check4",
+    "type": "checkbox",
+    "value": "",
+    "isDisabled": false
   }
 ]

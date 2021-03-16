@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import FormTextInput from './components/FormTextInput'
-import fieldList from './fieldList.json'
 import { Card, Button } from "react-bootstrap";
-import { getPattern } from '../../regex/regex';
+import FromCheckBox from './components/FromCheckBox';
 
-const Form: React.FC = () => {
-    const [formState, setFormState] = useState<any>({});
+interface Props {
+    fieldList: Array<InputObject>
+}
+
+const Form: React.FC<Props> = ({ fieldList }) => {
+    const [formState, setFormState] = useState<any>({ fieldList });
     const [fieldValidation, setFieldValidation] = useState<any>({});
     const [formError, setFormError] = useState<any>({});
 
     useEffect(() => {
         const initialState: any = {};
         const validation: any = {};
-        fieldList.forEach(field => {
+        fieldList.forEach((field: any) => {
             initialState[field.name] = field.value;
             validation[field.name] = field.validation
         })
@@ -20,30 +23,31 @@ const Form: React.FC = () => {
         setFormState(initialState);
     }, [fieldList]);
 
+    const updateFormError = (error: any) => {
+        setFormError({ ...formError, ...error })
+    }
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        setFormState({ ...formState, [event.target.name]: event.target.value });
+        if (event.target.type === 'checkbox')
+            setFormState({ ...formState, [event.target.name]: event.target.checked });
+        else
+            setFormState({ ...formState, [event.target.name]: event.target.value });
     }
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
         event.preventDefault();
-        validate(formState);
-        console.log(formState)
-        alert(JSON.stringify(formState));
+        !validate() && alert("Success");
     }
 
-    const validate = (userInput: any): boolean => {
-        const keyList: any = Object.keys(userInput)
-        let errorObject: any = {};
+    const validate = (): boolean => {
+        const keyList: any = Object.keys(formError)
+        let hasError = false;
         keyList.forEach((key: any) => {
-            if (fieldValidation?.[key]?.pattern) {
-                const pattern = new RegExp(getPattern(fieldValidation[key].pattern))
-                const hasError = pattern.test(userInput[key]);
-                if (hasError)
-                    errorObject[key] = fieldList.find((field: any) => field.name === key)?.errorMessage
+            if (formError[key]) {
+                hasError = true;
             }
         });
-        setFormError(errorObject)
-        return true;
+        return hasError;
     }
 
     return (
@@ -51,17 +55,30 @@ const Form: React.FC = () => {
             <Card.Header>Test form 1</Card.Header>
             <Card.Body>
                 <form onSubmit={handleSubmit}>
-                    {fieldList.map(field => {
-                        return <FormTextInput
-                            name={field.name}
-                            label={field.label}
-                            type={field.type}
-                            handleChange={handleChange}
-                            isDisabled={field.isDisabled}
-                            value={field.value}
-                            validation={field.validation}
-                            errorMessage={field.errorMessage}
-                        />
+                    {fieldList.map((field: any) => {
+                        if (field.type === "checkbox")
+                            return <FromCheckBox
+                                name={field.name}
+                                label={field.label}
+                                type={field.type}
+                                handleChange={handleChange}
+                                isDisabled={field.isDisabled}
+                                value={field.value}
+                                validation={field.validation}
+                                errorMessage={formError[field.name] && field.errorMessage}
+                            />
+                        else
+                            return <FormTextInput
+                                name={field.name}
+                                label={field.label}
+                                type={field.type}
+                                handleChange={handleChange}
+                                isDisabled={field.isDisabled}
+                                value={formState[field.name]}
+                                validation={field.validation}
+                                errorMessage={formError[field.name] && field.errorMessage}
+                                updateFormError={updateFormError}
+                            />
                     })}
                     <Button variant="primary" type='submit' >submit</Button>
                 </form>

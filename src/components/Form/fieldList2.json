@@ -1,0 +1,24 @@
+[
+  {
+    "name": "username",
+    "label": "Username",
+    "type": "text",
+    "value": "",
+    "isDisabled": false,
+    "validation": {
+      "required": true
+    },
+    "errorMessage": "Please enter username"
+  },
+  {
+    "name": "password",
+    "label": "Password",
+    "type": "password",
+    "value": "",
+    "isDisabled": false,
+    "validation": {
+      "required": true
+    },
+    "errorMessage": "Please enter password"
+  }
+]
