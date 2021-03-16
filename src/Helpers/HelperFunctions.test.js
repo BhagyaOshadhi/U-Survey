@@ -6,7 +6,7 @@ test("multiply",()=>{
 
 });
 test("makeLowerCase",()=>{
-    expect(makeLowerCase("Bhagya")).toBe("bBagya");
+    expect(makeLowerCase("Bhagya")).toBe("bhagya");
     expect(makeLowerCase("Hiru")).toBe("hiru");
 
 
