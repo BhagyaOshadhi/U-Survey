@@ -7,7 +7,7 @@ interface Props {
     fieldList: Array<InputObject>
 }
 
-const Form: React.FC<Props> = ({ fieldList }) => {
+const Form: React.FC<Props> = ({fieldList }) => {
     const [formState, setFormState] = useState<any>({ fieldList });
     const [fieldValidation, setFieldValidation] = useState<any>({});
     const [formError, setFormError] = useState<any>({});
