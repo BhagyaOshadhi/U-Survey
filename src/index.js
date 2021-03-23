@@ -4,11 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import Themes from './Themes';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+      <Switch>
+        <Route exact path="/" component={App}/>
+        <Route exact path="/themes" component={Themes}/>
+      </Switch>
+  </Router>,
   document.getElementById('root')
 );
 
