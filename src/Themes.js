@@ -3,7 +3,7 @@ import ButtonTheme from "./ButtonTheme";
 import Div from "./Div";
 import Dropdown from './Dropdown';
 import Cards from "./Cards";
-import Chart from "./Chart";
+
 
 function Themes(){
     const themeDefault = {
@@ -37,7 +37,6 @@ function Themes(){
             <br/>
             <br/>
             <Div theme={theme}>
-                <Chart  theme={theme}/>
                 <Cards  theme={theme}>
                     <h5>card 1</h5>
                 </Cards>

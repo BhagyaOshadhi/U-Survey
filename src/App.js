@@ -5,7 +5,7 @@ import {Button,TomatoButton} from './ExtendingStyles';
 import {rotate,Rotate} from './Animations';
 import FunctionTheme from "./FunctionThemes";
 import ThemeWithoutStyleComponent from "./ThemeWithoutStyleComponent";
-import Chart from "./Chart";
+
 
 
 function App(props) {
@@ -46,7 +46,6 @@ function App(props) {
         <FunctionTheme theme={funcTheme}>Default Theme</FunctionTheme>
         <FunctionTheme theme={invertTheme(funcTheme)}>Inverted Theme</FunctionTheme>
         <br/>
-        {/*<Chart/>*/}
     </div>
   );
 };
