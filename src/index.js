@@ -4,11 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import Responsive from "./Reasponsive";
+import HoverFocus from "./HoverFocus";
+import Darkmode from "./Darkmode";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Router>
+        <Switch>
+            <Route exact path="/" component={App}/>
+            <Route exact path="/responsive" component={Responsive}/>
+            <Route exact path="/hoverfocus" component={HoverFocus}/>
+            <Route exact path="/darkmode" component={Darkmode}/>
+        </Switch>
+    </Router>,
   document.getElementById('root')
 );
 
