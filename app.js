@@ -20,7 +20,8 @@ mongoose.connect(
     console.log(`DB connection error: ${err.message}`)
   });
 
-const postRoutes= require('./routes/post')
+const postRoutes= require('./routes/post');
+const post = require("./models/post");
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
