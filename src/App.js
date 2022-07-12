@@ -1,13 +1,18 @@
-import './App.css';
+import React from 'react';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { Card } from './components/Card';
+import { Memegenerator } from './meme-generator/Memegenerator';
 
-
-
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-     <p>Welcome  </p>
+    <div >
+      {/* <Navbar />
+      <Hero />
+      <Card /> */}
+      <Memegenerator/>
     </div>
   );
 }
 
-export default App;
+
